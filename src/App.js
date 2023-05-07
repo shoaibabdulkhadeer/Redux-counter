@@ -1,4 +1,3 @@
-
 import './App.css';
 import { increment } from './actions';
 import { decrement } from './actions';
@@ -9,6 +8,8 @@ import { useDispatch } from 'react-redux';
 function App() {
 
   const counter = useSelector(state => state.counter)
+  const loggedIn = useSelector(state => state.loggedReducer)
+
 const dispath = useDispatch()
    
   return (
@@ -16,6 +17,11 @@ const dispath = useDispatch()
       <p>{counter}</p>
       <button onClick={() => dispath(increment())}>+</button>
       <button onClick={() => dispath(decrement())}>-</button>
+ 
+ 
+       {loggedIn ?    <p>Confidential text </p>  : ""}
+ 
+
     </div>
   );
 }
